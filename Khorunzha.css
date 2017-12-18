@@ -1,6 +1,6 @@
 body {
 	background-color: #FFFFFF;
-	font-family: Arial;
+	font-family: Calibri;
 	line-height: 1.5;
 }
 
@@ -9,29 +9,42 @@ body {
 	height: 544px;
 	width: 596px;
 	padding: 2px;
+	font-size: 19px;
 }
 
-#cv {
+#top_block {
 	color: white;
 	height: 60px;
 	text-align: center;
-	font-size: 25px;
+	vertical-align: center;
+	line-height: 20px;
+	font-size: 27px;
 	background-color: #3D4F5B;
+}
+
+#empty_space {
+	display: inline-block;
+	vertical-align: middle;
 }
 
 #left_block {
 	color: white;
 	background: linear-gradient(to right, #444444, #787878);
 	width: 152px;
+	height: 485px;
+	float: left;
+	margin-right: 10px;
 }
 
-img {
-	margin: 17px;
+#another_cat {
+	border: 2px solid #BDBDBD;
+	border-radius: 30px;
+	margin: 20px 14px 14px;
 }
 
 #name {
 	text-align: left;
-	font-size: 25px;
+	font-size: 32px;
 	margin-left: 10px;
 	margin-top: 0px;
 	margin-right: 10px;
@@ -44,63 +57,79 @@ div {
 
 p {
 	border-bottom: 2px solid yellow;
+	margin-bottom: 15px;
+}
+
+#food {
+	text-align: center;
+	margin-bottom: 10px;
 }
 
 #t1 {
 	background-color: #FFA500;
 	width: 90px;
-	border-radius: 3px;
+	border-radius: 5px;
 	font-size: 10px;
 	text-align: center;
+	margin: 1px;
 }
 
 #t2 {
 	background-color: #0174DF;
 	width: 70px;
-	border-radius: 3px;
+	border-radius: 5px;
 	font-size: 10px;
 	text-align: center;
+	margin: 1px;
 }
 
 #t3 {
 	background-color: #008000;
-	width: 110px;
-	border-radius: 3px;
+	width: 130px;
+	border-radius: 5px;
 	font-size: 10px;	
 	text-align: center;
+	margin: 1px;
+	margin-bottom: 15px;
 }
 
 #links {
 	list-style-type: disc;
+	font-size: 15px;
 	padding-left: 20px;
 	margin-left: 10px;
 }
-
+	
 a {
 	color: #18ADE7;
+}
+
+#right_block {
+	position: relative;
 }
 
 .bold {
 	font-weight: 700;
 	margin-top: 5px;
-	padding-top: 0px;
+	margin-right: 3px;
 }
 
 .text {
+	font-size: 19px;
 	color: #13518D;
 	margin-left: 10px;
 }
 
-#right_block {
-	vertical-align: top;
+.flying {
+	position: relative;
+	top: -10px;
 }
 
 .border {
 	border-bottom: 2px solid #0080FF;
-	margin-bottom: 5px;
-	margin-left: 10px;
 	margin-right: 20px;
-	padding-bottom: 5px;
+	margin-left: 162px;
+	padding-bottom: 6px;
 }
 
 .lists {
