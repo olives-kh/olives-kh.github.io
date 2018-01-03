@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<html>
+<head>
+        <title> Угадай число </title>
+
+        <style type="text/css">
+        body {
+                background-image: url(background.jpg);
+        }
+                #container {
+                        font-family: Calibri;
+                        width: 30%;
+                        margin-top: 15%;
+                        border: 2px solid #FFD751;
+                        border-radius: 40px;
+                        padding: 20px;
+                        text-align: center;
+                        background-color: #097F7F;
+                        opacity: 0.4;
+                        left: 33%;
+                        position: fixed;
+                }
+
+                fieldset {
+                        color: white;
+                        border-color: gold;
+                        border-radius: 100px;
+                }
+
+                input[type="text"], input[type="button"]  {
+                        height: 30px;
+                        font-size: 24px;
+                        width: 70px;
+                        text-align: center;
+                        margin-bottom: 20px;
+                }
+
+                #info, #output {
+                        color: #FEE275;
+                        margin-bottom: 20px;
+                }
+
+                input[type="text"] {
+                        background-color: #61BA3C;
+                        border: 2px solid #FFD751;
+                        border-radius: 10px;
+                        color: white;
+                }
+
+                #guessBtn {
+                        color: white;
+                        width: auto;
+                        height: 35px;
+                        background-color: #61BA3C;
+                        border: 2px solid #FFD751;
+                        border-radius: 10px;
+                }
+
+
+        </style>
+
+        <script type="text/javascript">
+
+                window.onload = function() {
+                        var infoArea = document.getElementById("info");
+                        infoArea.innerHTML = "Загрузка...";
+                        setTimeout(init, 2000); // задержим по приколу )
+                        }
+
+                function init() {
+                        var infoArea = document.getElementById("info");
+                        infoArea.innerHTML = "";
+                        var guessBtn = document.getElementById("guessBtn");
+                        guessBtn.disabled = false;
+
+                        var container = document.getElementById("container");
+                        container.style.backgroundColor = "#02A75B";
+                        container.style.opacity = 0.7;
+                }
+
+                function randomNumber() {
+                var numToGuess = Math.floor(Math.random() * 10) + 1;
+                return numToGuess;    
+                }
+
+                var res = randomNumber();
+
+                function verify() {
+                        var output = document.getElementById("output");
+                        var userInput = document.getElementById("userInput");
+                        var tries = document.getElementById("tries");
+                        if (!isNaN(userInput.value) && userInput.value > 0 && userInput.value < 11) {
+                                output.style.color = "#B5F46E";
+                                checkIf();
+                        } else {
+                                output.innerHTML = "Введите число от 1 до 10";
+                                output.style.color = "#EB9546";
+                        }
+                }
+
+                function checkIf() {
+                        if ((userInput.value < res) && (tries.innerHTML != 1)) {
+                                output.innerHTML = "Ваше число меньше";
+                                tries.innerHTML -= 1;
+                        } else if ((userInput.value > res) && (tries.innerHTML != 1)) {
+                                output.innerHTML = "Ваше число больше";
+                                tries.innerHTML -=1;
+                        } else if (tries.innerHTML != 1) {
+                                var triesUsed = 11 - tries.innerHTML;
+                                var triesLeft = document.getElementById("triesLeft");
+                                output.innerHTML = "Вы угадали! Попыток использовано: " + triesUsed;
+                                triesLeft.innerHTML = " ";
+                                guessBtn.disabled = true;
+
+                        } else {
+                                output.innerHTML = "Игра окончена! Правильный ответ: " + res;
+                                guessBtn.disabled = true;
+                                tries.innerHTML -= 1;
+                        }
+
+                }
+
+        </script>
+</head>
+
+<body>
+        <div id="container">
+                <fieldset>
+                        <legend> Угадай число </legend>
+                        <div id="info">___</div>
+                        <div>
+                                <input type="text" id="userInput" value="0" />
+                                <input type="button" id="guessBtn" value="Угадать" onclick="verify()" disabled="true" />
+                        </div>
+                        <div id="output"> Введите число от 1 до 10 </div>
+                        <div id="triesLeft"> Осталось попыток: <span id="tries"> 10 </span> </div>
+                </fieldset>
+        </div>
+
+</body>
+</html>
